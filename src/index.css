@@ -410,9 +410,11 @@ a:focus-visible {
   background: #dcebff;
 }
 
-.match-tile.done {
+.match-tile.done,
+.match-tile:disabled {
   background: #d8ffe6;
-  opacity: 0.85;
+  opacity: 1;
+  color: var(--ink);
 }
 
 .match-tile.wrong {
