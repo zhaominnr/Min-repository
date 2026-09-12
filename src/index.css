@@ -78,6 +78,12 @@ a:focus-visible {
   padding: 4px;
 }
 
+.brand-mark,
+.emoji,
+.emoji-xl {
+  font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', Fredoka, sans-serif;
+}
+
 .brand-mark {
   width: 52px;
   height: 52px;
@@ -157,7 +163,7 @@ a:focus-visible {
 .big-card,
 .cat-card {
   text-align: left;
-  background: #fff8ee;
+  background: #fff3d9;
   border-radius: 24px;
   padding: 18px;
   min-height: 132px;
@@ -165,6 +171,13 @@ a:focus-visible {
   color: inherit;
   transition: transform 0.12s ease;
 }
+
+.mode-grid .big-card:nth-child(1) { background: #ffe4c8; }
+.mode-grid .big-card:nth-child(2) { background: #dce9ff; }
+.mode-grid .big-card:nth-child(3) { background: #ffe7f0; }
+.mode-grid .big-card:nth-child(4) { background: #d9f6e6; }
+.mode-grid .big-card:nth-child(5) { background: #fff1b8; }
+.mode-grid .big-card:nth-child(6) { background: #eee6ff; }
 
 .big-card:hover,
 .cat-card:hover,

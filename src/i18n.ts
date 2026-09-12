@@ -33,6 +33,7 @@ const copy = {
   listenQuestion: { en: 'What did Panda say?', zh: '熊猫说的是什么？' },
   playAgain: { en: 'Hear it again', zh: '再听一次' },
   tryAgain: { en: 'Almost! Try again.', zh: '很接近！再试一次。' },
+  tryAgainBtn: { en: 'Try again', zh: '再试一次' },
   great: { en: 'Great job!', zh: '太棒了！' },
   awesome: { en: 'Awesome!', zh: '真棒！' },
   youDidIt: { en: 'You did it!', zh: '你做到了！' },

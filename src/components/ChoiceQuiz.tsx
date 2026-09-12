@@ -100,7 +100,7 @@ export function ChoiceQuiz({ lang, category, onBack, onCorrect }: Props) {
       <div className="pager">
         {picked && !correct && (
           <button className="primary-btn" type="button" onClick={retry}>
-            {t(lang, 'tryAgain')}
+            {t(lang, 'tryAgainBtn')}
           </button>
         )}
         {correct && (
