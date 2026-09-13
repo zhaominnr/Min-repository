@@ -18,6 +18,26 @@ The repository was empty, so the app lives at the **repo root**.
 - **English / 简易中文** labels for the app chrome
 - Touch-friendly tap targets, keyboard focus styles, and encouraging (never harsh) feedback
 
+## Open on a phone (GitHub Pages)
+
+Permanent URL after Pages is enabled and the workflow has succeeded once:
+
+**https://zhaominnr.github.io/Min-repository/**
+
+Bookmark that link on the phone. Kids open it in mobile Safari or Chrome. No App Store install.
+
+### Enable GitHub Pages (one-time)
+
+This repo is currently **private**. Free GitHub Pages only works for **public** repositories. For a private repo you need GitHub Pro or Team, **or** make the repo public.
+
+1. If you want the free option: GitHub → this repo → **Settings** → scroll to **Danger Zone** → **Change repository visibility** → **Public**.
+2. Still in **Settings** → **Pages**.
+3. Under **Build and deployment** → **Source**, choose **GitHub Actions**.
+4. If the workflow has not run yet, open the **Actions** tab → **Deploy GitHub Pages** → **Run workflow** (or push any commit). Approve the `github-pages` environment if GitHub asks.
+5. When the workflow is green, open **https://zhaominnr.github.io/Min-repository/** on the phone and bookmark it.
+
+If Pages stays blocked (private repo without Pro/Team), build locally and drag the `dist/` folder onto [Netlify Drop](https://app.netlify.com/drop). That gives a public `*.netlify.app` link without changing repo visibility.
+
 ## Run locally
 
 You need Node.js 20+ and npm.
@@ -27,7 +47,9 @@ npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (usually `http://localhost:5173`).
+Vite is configured with base `/Min-repository/` (same as GitHub Pages). Open:
+
+`http://localhost:5173/Min-repository/`
 
 ## Build a static site
 
@@ -35,13 +57,13 @@ Then open the URL Vite prints (usually `http://localhost:5173`).
 npm run build
 ```
 
-The production files are written to `dist/`. Preview them with:
+The production files are written to `dist/` with asset paths under `/Min-repository/`. Preview them with:
 
 ```bash
 npm run preview
 ```
 
-You can deploy the `dist/` folder to any static host (GitHub Pages, Netlify, Cloudflare Pages, etc.).
+Then open `http://localhost:4173/Min-repository/`.
 
 ## How kids use it
 
