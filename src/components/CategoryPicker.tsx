@@ -49,7 +49,9 @@ export function CategoryPicker({ lang, mode, onBack, onPick }: Props) {
               {cat.emoji}
             </span>
             <strong>{categoryName(lang, cat.id)}</strong>
-            <div className="hint">{wordCountFor(cat.id)} {lang === 'en' ? 'words' : '个词'}</div>
+            <div className="hint">
+              {wordCountFor(cat.id)} {t(lang, 'wordCount')}
+            </div>
           </button>
         ))}
       </div>

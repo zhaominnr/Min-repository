@@ -81,7 +81,7 @@ export default function App() {
             <span>{t(lang, 'tagline')}</span>
           </span>
         </button>
-        <div className="lang-toggle" role="group" aria-label="Language">
+        <div className="lang-toggle" role="group" aria-label={t(lang, 'language')}>
           <button
             type="button"
             className={lang === 'en' ? 'active' : ''}

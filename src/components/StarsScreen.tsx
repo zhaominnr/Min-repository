@@ -37,7 +37,7 @@ export function StarsScreen({ lang, progress, onBack, onReset }: Props) {
             <strong>
               {cat.emoji} {categoryName(lang, cat.id)}
             </strong>
-            <span aria-label={`${progress.stars[cat.id]} stars`}>
+            <span aria-label={`${progress.stars[cat.id]} ${t(lang, 'totalStars')}`}>
               {'⭐'.repeat(Math.min(progress.stars[cat.id], 8))}
               {progress.stars[cat.id] > 8 ? ` +${progress.stars[cat.id] - 8}` : ''}
               {progress.stars[cat.id] === 0 ? '·' : ` ${progress.stars[cat.id]}`}

@@ -96,7 +96,7 @@ export function MatchQuiz({ lang, category, onBack, onCorrect }: Props) {
       <h1>{t(lang, 'match')}</h1>
       <p className="lede">{message}</p>
       <div className="match-board">
-        <div className="match-col" aria-label={lang === 'en' ? 'Chinese words' : '中文词'}>
+        <div className="match-col" aria-label={t(lang, 'chineseColumn')}>
           {board.left.map((word) => (
             <button
               key={`l-${word.id}`}
@@ -111,7 +111,7 @@ export function MatchQuiz({ lang, category, onBack, onCorrect }: Props) {
             </button>
           ))}
         </div>
-        <div className="match-col" aria-label={lang === 'en' ? 'English meanings' : '英文意思'}>
+        <div className="match-col" aria-label={t(lang, 'englishColumn')}>
           {board.right.map((word) => (
             <button
               key={`r-${word.id}`}
