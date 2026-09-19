@@ -14,7 +14,7 @@ function emptyStars(): Record<CategoryId, number> {
 }
 
 export function emptyProgress(): ProgressState {
-  return { points: 0, stars: emptyStars(), learnedIds: [], quizWins: 0 }
+  return { points: 0, stars: emptyStars(), learnedIds: [], quizWins: 0, completedDialogues: [] }
 }
 
 export function loadProgress(): ProgressState {
@@ -27,6 +27,7 @@ export function loadProgress(): ProgressState {
       stars: { ...emptyStars(), ...(parsed.stars ?? {}) },
       learnedIds: Array.isArray(parsed.learnedIds) ? parsed.learnedIds : [],
       quizWins: typeof parsed.quizWins === 'number' ? parsed.quizWins : 0,
+      completedDialogues: Array.isArray(parsed.completedDialogues) ? parsed.completedDialogues : [],
     }
   } catch {
     return emptyProgress()
@@ -49,6 +50,16 @@ export function awardCorrect(state: ProgressState, category: CategoryId): Progre
     quizWins: state.quizWins + 1,
     stars: { ...state.stars, [category]: state.stars[category] + 1 },
   }
+}
+
+export function markDialogueComplete(
+  state: ProgressState,
+  dialogueId: string,
+  category: CategoryId,
+): ProgressState {
+  if (state.completedDialogues.includes(dialogueId)) return state
+  const awarded = awardCorrect(state, category)
+  return { ...awarded, completedDialogues: [...state.completedDialogues, dialogueId] }
 }
 
 export function totalStars(state: ProgressState): number {

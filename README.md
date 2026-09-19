@@ -1,6 +1,6 @@
 # Panda Pal · Kids Learn Chinese
 
-A Chinese practice app for kids ages 5 to 12. Open it on a phone, tablet, or computer. Kids use word cards and three games. They can hear the words. They collect stars. There is no login.
+A Chinese practice app for kids ages 5 to 12. Open it on a phone, tablet, or computer. Kids use word cards, games, and Practice Talk. They can hear the words. They collect stars. There is no login.
 
 The repository was empty, so the app lives at the **repo root**.
 
@@ -13,7 +13,8 @@ The repository was empty, so the app lives at the **repo root**.
   - Choose the word
   - Match words (Chinese ↔ English)
   - Listen and choose (Web Speech API, `zh-CN`)
-- **Talk** — a short Chinese chat with an AI tutor (parent API key required)
+- **Practice Talk** — short spoken dialogues. No API key. Works offline.
+- **AI Talk** — a chat with an AI tutor (parent API key required)
 - **Speaker button** on cards, games, and Talk. If sound does not work, kids can still read the words.
 - **Stars and points** stay on this device.
 - Labels can be **English** or **简易中文**.
@@ -68,7 +69,7 @@ Then open `http://localhost:4173/Min-repository/`.
 
 ## How kids use it
 
-1. Choose **Word cards**, a game, or **Talk**.
+1. Choose **Word cards**, a game, or **Practice Talk**.
 2. Choose a topic. In games you can also choose **All topics**.
 3. Tap the card or the answers. Tap the blue speaker to hear Chinese.
 4. Open **My stars** to see your stars and the words you know.
@@ -81,12 +82,16 @@ This is extra practice. It is not a full course.
 Sit nearby at first. Keep practice short. Praise effort.
 Sound uses this device’s Chinese voice, if the browser has one.
 
-## Talk (AI chat)
+## Practice Talk
 
-Talk is a short Chinese chat with an AI tutor.
+Practice Talk is a short scripted chat. Choose a topic. Hear Panda. Say your line. Tap **I said it**.
+Some turns ask **What do you say next?**
+No API key. No internet.
 
-A parent must paste an API key in **Talk → Settings**. You can also set the API address and model name. The default address is OpenAI. The default model is `gpt-4o-mini`. Other OpenAI-compatible services can work if you change the address.
+## AI Talk
+
+A parent must paste an API key in **AI Talk → Settings**. You can also set the API address and model name. The default address is OpenAI. The default model is `gpt-4o-mini`. Other OpenAI-compatible services can work if you change the address.
 
 The key stays in this browser on this device. Anyone who uses this device can see it. Use it at home only. Do not put the key in the project files.
 
-Some APIs block the browser. If Talk cannot connect, try a different API address.
+Some APIs block the browser. If AI Talk cannot connect, try a different API address.

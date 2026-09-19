@@ -19,9 +19,35 @@ export type ScreenName =
   | 'choice'
   | 'match'
   | 'listen'
+  | 'practiceTalk'
   | 'talk'
   | 'stars'
   | 'parents'
+
+export interface ScriptLine {
+  hanzi: string
+  pinyin: string
+  english: string
+}
+
+export interface ChoiceOption extends ScriptLine {
+  id: string
+  correct: boolean
+}
+
+export type DialogueTurn =
+  | { id: string; kind: 'tutor'; line: ScriptLine }
+  | { id: string; kind: 'learner'; line: ScriptLine }
+  | { id: string; kind: 'choice'; options: ChoiceOption[] }
+
+export type DialogueId = 'greetings' | 'family' | 'food' | 'school' | 'animals' | 'colors'
+
+export interface Dialogue {
+  id: DialogueId
+  category: CategoryId
+  emoji: string
+  turns: DialogueTurn[]
+}
 
 export interface Word {
   id: string
@@ -43,6 +69,7 @@ export interface ProgressState {
   stars: Record<CategoryId, number>
   learnedIds: string[]
   quizWins: number
+  completedDialogues: string[]
 }
 
 export type UiLang = 'en' | 'zh'

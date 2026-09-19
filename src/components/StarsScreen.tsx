@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CATEGORIES } from '../data/categories'
+import { DIALOGUES } from '../data/dialogues'
 import { WORDS } from '../data/vocabulary'
 import { categoryName, t } from '../i18n'
 import { totalStars } from '../lib/progress'
@@ -30,6 +31,7 @@ export function StarsScreen({ lang, progress, onBack, onReset }: Props) {
         <span className="pill">📚 {t(lang, 'wordsLearned')}: {progress.learnedIds.length}/{WORDS.length}</span>
         <span className="pill">🐼 {t(lang, 'points')}: {progress.points}</span>
         <span className="pill">🎉 {t(lang, 'quizWins')}: {progress.quizWins}</span>
+        <span className="pill">💬 {t(lang, 'talksDone')}: {progress.completedDialogues.length}/{DIALOGUES.length}</span>
       </div>
       <div className="stars-list">
         {CATEGORIES.map((cat) => (

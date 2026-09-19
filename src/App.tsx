@@ -6,12 +6,13 @@ import { HomeScreen } from './components/HomeScreen'
 import { ListenQuiz } from './components/ListenQuiz'
 import { MatchQuiz } from './components/MatchQuiz'
 import { ParentsScreen } from './components/ParentsScreen'
+import { PracticeTalkScreen } from './components/PracticeTalkScreen'
 import { StarsScreen } from './components/StarsScreen'
 import { TalkScreen } from './components/TalkScreen'
 import { t } from './i18n'
-import { awardCorrect, emptyProgress, loadProgress, markLearned, saveProgress } from './lib/progress'
+import { awardCorrect, emptyProgress, loadProgress, markDialogueComplete, markLearned, saveProgress } from './lib/progress'
 import { prepareVoices, stopSpeaking } from './lib/speech'
-import type { CategoryId, PracticeMode, ProgressState, QuizCategory, ScreenName, UiLang, Word } from './types'
+import type { CategoryId, Dialogue, PracticeMode, ProgressState, QuizCategory, ScreenName, UiLang, Word } from './types'
 
 const LANG_KEY = 'panda-pal-lang'
 
@@ -50,7 +51,7 @@ export default function App() {
   }
 
   const openFromHome = (
-    name: Extract<ScreenName, 'pick' | 'stars' | 'parents' | 'talk'>,
+    name: Extract<ScreenName, 'pick' | 'stars' | 'parents' | 'talk' | 'practiceTalk'>,
     mode?: Mode,
   ) => {
     setScreen({ name, mode })
@@ -66,6 +67,10 @@ export default function App() {
 
   const onCorrect = (word: Word) => {
     setProgress((p) => awardCorrect(markLearned(p, word.id), word.category))
+  }
+
+  const onDialogueDone = (dialogue: Dialogue) => {
+    setProgress((p) => markDialogueComplete(p, dialogue.id, dialogue.category))
   }
 
   const category = screen.category
@@ -142,6 +147,15 @@ export default function App() {
           category={category}
           onBack={() => setScreen({ name: 'pick', mode: 'listen' })}
           onCorrect={onCorrect}
+        />
+      )}
+
+      {screen.name === 'practiceTalk' && (
+        <PracticeTalkScreen
+          lang={lang}
+          progress={progress}
+          onBack={goHome}
+          onComplete={onDialogueDone}
         />
       )}
 

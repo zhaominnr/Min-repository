@@ -4,7 +4,7 @@ import type { ScreenName, UiLang } from '../types'
 interface Props {
   lang: UiLang
   onOpen: (
-    screen: Extract<ScreenName, 'pick' | 'stars' | 'parents' | 'talk'>,
+    screen: Extract<ScreenName, 'pick' | 'stars' | 'parents' | 'talk' | 'practiceTalk'>,
     mode?: 'flashcards' | 'choice' | 'match' | 'listen',
   ) => void
 }
@@ -42,6 +42,13 @@ export function HomeScreen({ lang, onOpen }: Props) {
           </span>
           <strong>{t(lang, 'listen')}</strong>
           <div className="hint">{t(lang, 'listenHint')}</div>
+        </button>
+        <button className="big-card" type="button" onClick={() => onOpen('practiceTalk')}>
+          <span className="emoji" aria-hidden>
+            🗣️
+          </span>
+          <strong>{t(lang, 'practiceTalk')}</strong>
+          <div className="hint">{t(lang, 'practiceTalkHint')}</div>
         </button>
         <button className="big-card" type="button" onClick={() => onOpen('talk')}>
           <span className="emoji" aria-hidden>
