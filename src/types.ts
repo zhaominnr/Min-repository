@@ -19,6 +19,7 @@ export type ScreenName =
   | 'choice'
   | 'match'
   | 'listen'
+  | 'talk'
   | 'stars'
   | 'parents'
 

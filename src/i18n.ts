@@ -4,7 +4,7 @@ const copy = {
   appName: { en: 'Panda Pal', zh: '熊猫伙伴' },
   tagline: { en: 'Learn Chinese here.', zh: '在这里学中文。' },
   hello: { en: 'Hello.', zh: '你好。' },
-  pickPlay: { en: 'Choose a game.', zh: '选一个游戏。' },
+  pickPlay: { en: 'Choose what to do.', zh: '选你想做的。' },
   flashcards: { en: 'Word cards', zh: '单词卡片' },
   flashcardsHint: { en: 'See a word. Tap to flip. Hear it.', zh: '看一个词。点卡片翻面。听一听。' },
   choice: { en: 'Choose the word', zh: '选词' },
@@ -13,6 +13,38 @@ const copy = {
   matchHint: { en: 'Match the Chinese word to English.', zh: '把中文词和英文词配对。' },
   listen: { en: 'Listen and choose', zh: '听一听，选一选' },
   listenHint: { en: 'Hear a word. Choose what it means.', zh: '听一个词。选出它的意思。' },
+  talk: { en: 'Talk', zh: '对话' },
+  talkHint: { en: 'Practice a short Chinese chat.', zh: '练习简单的中文对话。' },
+  talkEmpty: {
+    en: 'Talk needs an API key. A parent can add it in Settings.',
+    zh: '对话需要密钥。家长可以在设置里填写。',
+  },
+  talkSettings: { en: 'Settings', zh: '设置' },
+  talkHideSettings: { en: 'Hide settings', zh: '收起设置' },
+  apiKey: { en: 'API key', zh: '密钥' },
+  apiBase: { en: 'API address', zh: '接口地址' },
+  apiModel: { en: 'Model name', zh: '模型名称' },
+  saveKey: { en: 'Save', zh: '保存' },
+  clearKey: { en: 'Remove key', zh: '删除密钥' },
+  keySaved: { en: 'Key saved on this device.', zh: '密钥已保存在这台设备上。' },
+  keyHint: {
+    en: 'Paste a key from OpenAI or a similar service. It stays in this browser.',
+    zh: '粘贴 OpenAI 或同类服务的密钥。密钥只留在这个浏览器里。',
+  },
+  send: { en: 'Send', zh: '发送' },
+  yourMessage: { en: 'Your message', zh: '你的话' },
+  sending: { en: 'Sending…', zh: '正在发送…' },
+  you: { en: 'You', zh: '你' },
+  tutor: { en: 'Panda', zh: '熊猫' },
+  promptHello: { en: 'Say hello', zh: '打个招呼' },
+  promptFood: { en: 'Talk about food', zh: '说说食物' },
+  promptFamily: { en: 'Talk about family', zh: '说说家人' },
+  promptSchool: { en: 'Talk about school', zh: '说说学校' },
+  promptAnimals: { en: 'Talk about animals', zh: '说说动物' },
+  errorNetwork: { en: 'Could not reach the server. Try again.', zh: '连不上服务器。请再试一次。' },
+  errorKey: { en: 'This key did not work. Check the key and try again.', zh: '这个密钥不能用。请检查后再试。' },
+  errorGeneric: { en: 'Something went wrong. Try again.', zh: '出了一点问题。请再试一次。' },
+  errorRate: { en: 'Please wait a bit. Then try again.', zh: '请稍等一下。然后再试。' },
   stars: { en: 'My stars', zh: '我的星星' },
   starsHint: { en: 'See your stars and words.', zh: '看你的星星和学会的词。' },
   parents: { en: 'For parents', zh: '给家长' },
@@ -50,8 +82,8 @@ const copy = {
   noHarsh: { en: 'Each try helps you learn.', zh: '每次尝试都在帮你学习。' },
   parentsTitle: { en: 'For parents', zh: '给家长' },
   parentsBody1: {
-    en: 'This app helps kids ages 5 to 12 practice Chinese. There is no login. Nothing is sent to the internet. Progress stays on this phone or computer.',
-    zh: '这个应用帮助5到12岁的孩子练习中文。不用登录。不会把信息发到网上。进度只保存在这台手机或电脑上。',
+    en: 'This app helps kids ages 5 to 12 practice Chinese. There is no login. Word cards and games stay on this phone or computer.',
+    zh: '这个应用帮助5到12岁的孩子练习中文。不用登录。单词卡片和游戏的进度只保存在这台手机或电脑上。',
   },
   parentsBody2: {
     en: 'Sit nearby the first few times. Praise effort. Ask your child to teach you a word. Keep practice short. Sound uses this device’s Chinese voice, if it has one.',
@@ -60,6 +92,10 @@ const copy = {
   parentsBody3: {
     en: 'This is extra practice. It is not a full course.',
     zh: '这是额外练习。这不是完整课程。',
+  },
+  parentsBody4: {
+    en: 'Talk needs a parent API key. The key stays in this browser on this device. Anyone who uses this device can see it. Use it at home only. Do not put the key in the app files.',
+    zh: '对话需要家长填写密钥。密钥只留在这台设备的浏览器里。用这台设备的人都能看到它。请只在家里用。不要把密钥写进应用文件。',
   },
   langToggleEn: { en: 'English', zh: 'English' },
   langToggleZh: { en: '简易中文', zh: '简易中文' },
@@ -98,3 +134,11 @@ export function categoryName(lang: UiLang, id: CategoryId): string {
 }
 
 export const CHEERS: CopyKey[] = ['great', 'awesome', 'youDidIt', 'keepGoing']
+
+export const TALK_PROMPTS: CopyKey[] = [
+  'promptHello',
+  'promptFood',
+  'promptFamily',
+  'promptSchool',
+  'promptAnimals',
+]

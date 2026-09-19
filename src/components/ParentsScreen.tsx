@@ -18,6 +18,7 @@ export function ParentsScreen({ lang, onBack }: Props) {
       <p>{t(lang, 'parentsBody1')}</p>
       <p>{t(lang, 'parentsBody2')}</p>
       <p>{t(lang, 'parentsBody3')}</p>
+      <p>{t(lang, 'parentsBody4')}</p>
     </section>
   )
 }

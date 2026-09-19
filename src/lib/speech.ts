@@ -1,5 +1,3 @@
-let voicesReady = false
-
 function pickZhVoice(): SpeechSynthesisVoice | undefined {
   const voices = window.speechSynthesis.getVoices()
   return (
@@ -10,11 +8,11 @@ function pickZhVoice(): SpeechSynthesisVoice | undefined {
 
 export function prepareVoices(): void {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
-  const markReady = () => {
-    voicesReady = window.speechSynthesis.getVoices().length > 0
+  const warm = () => {
+    window.speechSynthesis.getVoices()
   }
-  markReady()
-  window.speechSynthesis.addEventListener('voiceschanged', markReady)
+  warm()
+  window.speechSynthesis.addEventListener('voiceschanged', warm)
 }
 
 export function canSpeak(): boolean {
@@ -42,6 +40,8 @@ export function stopSpeaking(): void {
   if (canSpeak()) window.speechSynthesis.cancel()
 }
 
-export function hasChineseVoice(): boolean {
-  return voicesReady && Boolean(pickZhVoice())
+export function chineseForSpeech(text: string): string {
+  const parts = text.match(/[\u3400-\u9FFF]+/g)
+  if (parts && parts.length > 0) return parts.join('，')
+  return text
 }

@@ -7,6 +7,7 @@ import { ListenQuiz } from './components/ListenQuiz'
 import { MatchQuiz } from './components/MatchQuiz'
 import { ParentsScreen } from './components/ParentsScreen'
 import { StarsScreen } from './components/StarsScreen'
+import { TalkScreen } from './components/TalkScreen'
 import { t } from './i18n'
 import { awardCorrect, emptyProgress, loadProgress, markLearned, saveProgress } from './lib/progress'
 import { prepareVoices, stopSpeaking } from './lib/speech'
@@ -49,7 +50,7 @@ export default function App() {
   }
 
   const openFromHome = (
-    name: Extract<ScreenName, 'pick' | 'stars' | 'parents'>,
+    name: Extract<ScreenName, 'pick' | 'stars' | 'parents' | 'talk'>,
     mode?: Mode,
   ) => {
     setScreen({ name, mode })
@@ -143,6 +144,8 @@ export default function App() {
           onCorrect={onCorrect}
         />
       )}
+
+      {screen.name === 'talk' && <TalkScreen lang={lang} onBack={goHome} />}
 
       {screen.name === 'stars' && (
         <StarsScreen
