@@ -1,0 +1,17 @@
+{
+  "name": "Panda Pal · Kids Learn Chinese",
+  "install": "npm ci",
+  "terminals": [
+    {
+      "name": "vite-dev",
+      "command": "npm run dev",
+      "description": "Vite dev server for the Panda Pal app. Serves on http://localhost:5173/Min-repository/ (note the /Min-repository/ base path)."
+    }
+  ],
+  "ports": [
+    {
+      "name": "vite",
+      "port": 5173
+    }
+  ]
+}
