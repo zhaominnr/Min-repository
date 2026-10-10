@@ -10,6 +10,7 @@ import { PracticeTalkScreen } from './components/PracticeTalkScreen'
 import { StarsScreen } from './components/StarsScreen'
 import { TalkScreen } from './components/TalkScreen'
 import { t } from './i18n'
+import { useShowPinyin } from './PinyinContext'
 import { awardCorrect, emptyProgress, loadProgress, markDialogueComplete, markLearned, saveProgress } from './lib/progress'
 import { prepareVoices, stopSpeaking } from './lib/speech'
 import type { CategoryId, Dialogue, PracticeMode, ProgressState, QuizCategory, ScreenName, UiLang, Word } from './types'
@@ -32,6 +33,7 @@ export default function App() {
   const [lang, setLang] = useState<UiLang>(loadLang)
   const [progress, setProgress] = useState<ProgressState>(loadProgress)
   const [screen, setScreen] = useState<ScreenState>({ name: 'home' })
+  const { showPinyin, togglePinyin } = useShowPinyin()
 
   useEffect(() => {
     prepareVoices()
@@ -76,7 +78,7 @@ export default function App() {
   const category = screen.category
 
   return (
-    <div className="app">
+    <div className={`app ${showPinyin ? 'pinyin-on' : 'pinyin-off'}`}>
       <header className="topbar">
         <button className="brand" type="button" onClick={goHome} aria-label={t(lang, 'home')}>
           <span className="brand-mark" aria-hidden>
@@ -87,23 +89,33 @@ export default function App() {
             <span>{t(lang, 'tagline')}</span>
           </span>
         </button>
-        <div className="lang-toggle" role="group" aria-label={t(lang, 'language')}>
+        <div className="topbar-tools">
           <button
+            className={`pinyin-toggle ${showPinyin ? 'active' : ''}`}
             type="button"
-            className={lang === 'en' ? 'active' : ''}
-            aria-pressed={lang === 'en'}
-            onClick={() => setLang('en')}
+            aria-pressed={showPinyin}
+            onClick={togglePinyin}
           >
-            {t(lang, 'langToggleEn')}
+            {t(lang, showPinyin ? 'hidePinyin' : 'showPinyin')}
           </button>
-          <button
-            type="button"
-            className={lang === 'zh' ? 'active' : ''}
-            aria-pressed={lang === 'zh'}
-            onClick={() => setLang('zh')}
-          >
-            {t(lang, 'langToggleZh')}
-          </button>
+          <div className="lang-toggle" role="group" aria-label={t(lang, 'language')}>
+            <button
+              type="button"
+              className={lang === 'en' ? 'active' : ''}
+              aria-pressed={lang === 'en'}
+              onClick={() => setLang('en')}
+            >
+              {t(lang, 'langToggleEn')}
+            </button>
+            <button
+              type="button"
+              className={lang === 'zh' ? 'active' : ''}
+              aria-pressed={lang === 'zh'}
+              onClick={() => setLang('zh')}
+            >
+              {t(lang, 'langToggleZh')}
+            </button>
+          </div>
         </div>
       </header>
 

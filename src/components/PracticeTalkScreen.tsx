@@ -162,7 +162,7 @@ function PlayView({
                 >
                   {option.hanzi}
                   <span className="mini-pinyin">{option.pinyin}</span>
-                  <span className="mini-pinyin">{option.english}</span>
+                  <span className="mini-english">{option.english}</span>
                 </button>
               )
             })}

@@ -132,6 +132,29 @@ a:focus-visible {
   color: #fff;
 }
 
+.topbar-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.pinyin-toggle {
+  min-height: 52px;
+  border-radius: 999px;
+  padding: 0 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pinyin-toggle.active {
+  background: var(--sky);
+  color: #fff;
+}
+
 .hero,
 .panel {
   background: var(--card);
@@ -359,7 +382,8 @@ a:focus-visible {
   font-size: 1.35rem;
 }
 
-.choice-btn .mini-pinyin {
+.choice-btn .mini-pinyin,
+.choice-btn .mini-english {
   display: block;
   color: var(--ink-soft);
   font-size: 0.95rem;
@@ -649,6 +673,10 @@ a:focus-visible {
     padding: 12px 12px 32px;
   }
 
+  .topbar {
+    flex-wrap: wrap;
+  }
+
   .choice-grid,
   .match-board {
     grid-template-columns: 1fr;
@@ -662,4 +690,9 @@ a:focus-visible {
   .face {
     min-height: 300px;
   }
+}
+
+.app.pinyin-off .pinyin,
+.app.pinyin-off .mini-pinyin {
+  display: none;
 }

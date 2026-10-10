@@ -18,6 +18,7 @@ The repository was empty, so the app lives at the **repo root**.
 - **Speaker button** on cards, games, and Talk. If sound does not work, kids can still read the words.
 - **Stars and points** stay on this device.
 - Labels can be **English** or **简易中文**.
+- **Pinyin** is hidden at first. Tap **Show pinyin** in the top bar to see it.
 - Buttons are large. Wrong answers say try again.
 
 ## Open on a phone (GitHub Pages)

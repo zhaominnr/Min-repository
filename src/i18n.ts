@@ -110,6 +110,8 @@ const copy = {
   langToggleEn: { en: 'English', zh: 'English' },
   langToggleZh: { en: '简易中文', zh: '简易中文' },
   language: { en: 'Language', zh: '语言' },
+  showPinyin: { en: 'Show pinyin', zh: '显示拼音' },
+  hidePinyin: { en: 'Hide pinyin', zh: '隐藏拼音' },
   cardOf: { en: 'Card', zh: '卡片' },
   of: { en: 'of', zh: '/' },
   tapToReveal: { en: 'Tap to see English.', zh: '点一下看英文。' },
